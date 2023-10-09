@@ -1,0 +1,34 @@
+<div class="login">
+  <div class="login-container mx-auto w-75">
+    <h3 class="mb-5">Login:</h3>
+    <div *ngIf="errMessage" class=" alert alert-danger">{{errMessage}}</div>
+    <form (ngSubmit)="submitLogin(loginForm.value)" [formGroup]="loginForm">
+
+      <div>
+        <label for="email">Email:</label>
+        <input formControlName="email" class="mb-3 mt-1 form-control" type="email" name="email" id="email">
+        <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="alert alert-danger">
+          <p class="m-0" *ngIf="loginForm.get('email')?.getError('required')">Email is Required</p>
+          <p class="m-0" *ngIf="loginForm.get('email')?.getError('email')">Email is not valid</p>
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input formControlName="password" class="mb-3 mt-1 form-control" type="password" name="password" id="password">
+        <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="alert alert-danger">
+          <p class="m-0" *ngIf="loginForm.get('password')?.getError('required')">Password is Required</p>
+          <p class="m-0" *ngIf="loginForm.get('password')?.getError('pattern')">Password must contain at least one
+            number and one special character</p>
+        </div>
+      </div>
+      <div><a routerLink="/forgetPassword">Forgot Password??..</a></div>
+
+      <button [disabled]="!loginForm.valid" type="submit" class="btn auth-btn text-white d-block ms-auto">
+        <span *ngIf="!loading">Login</span>
+        <span *ngIf="loading"><i class="fa fa-spinner fa-spin"></i></span>
+      </button>
+
+    </form>
+  </div>
+</div>

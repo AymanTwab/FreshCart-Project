@@ -1,0 +1,32 @@
+<div class="row mb-5">
+  <div class="col-md-4 my-auto">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide><img [src]="productData.imageCover" alt=""></ng-template>
+      <ng-template *ngFor="let image of productImages" carouselSlide><img [src]="image" alt=""></ng-template>
+    </owl-carousel-o>
+  </div>
+  <div class="col-md-8 my-auto">
+    <!-- ... -->
+    <div class="p-3">
+      <h2 class="fs-16 fw-bold">{{productData.title}}</h2>
+      <p class="font-sm text-main">{{productData.category?.name}}</p>
+      <p class="font-sm">{{productData.description}}</p>
+      <div class="d-flex">
+        <span>{{productData.price}} EGP</span>
+        <div class="ms-auto">
+          <i class="fa-solid fa-star rating-color me-1"></i>
+          <span class="font-sm">{{productData.ratingsAverage}}</span>
+        </div>
+      </div>
+    </div>
+    <div class=" mt-2 d-flex p-3">
+      <button (click)="addToCart(productData.id)" class="btn bg-main text-white py-1 px-5">Add to Cart</button>
+      <i (click)="AddToWishlist(productData.id)"
+        class="fa-solid fa-heart ms-auto align-items-center my-auto me-2 fs-4 wish-list-heart cursor-pointer"></i>
+    </div>
+    <!-- ... -->
+  </div>
+</div>
+<div id="loading" class="loading position-fixed top-0 bottom-0 end-0 start-0 bg-dark">
+  <span class="loader"></span>
+</div>

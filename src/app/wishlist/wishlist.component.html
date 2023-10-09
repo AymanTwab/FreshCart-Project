@@ -1,0 +1,32 @@
+<div class="mt-4">
+  <h3 class="fs-1 text-center my-3">Wishlist</h3>
+  <div *ngIf="isEmpty" class="alert my-5 text-center">
+    <p>Your wishlist is empty</p>
+  </div>
+  <div *ngFor=" let product of products" class="wish-product">
+    <div class="row bg-light p-3 my-3">
+      <div class="col-md-2"><img class="w-100" [src]="product.imageCover" alt=""></div>
+      <div class="col-md-10">
+        <div class="p-3">
+          <h2 class="fs-5 fw-bold">{{product.title}}</h2>
+          <p class="font-sm text-main">{{product.category.name}}</p>
+          <div class="d-flex">
+            <span>{{product.price}} EGP</span>
+            <div class="ms-auto">
+              <i class="fa-solid fa-star rating-color me-1"></i>
+              <span class="font-sm">{{product.ratingsAverage}}</span>
+            </div>
+          </div>
+        </div>
+        <div class=" mt-2 d-flex">
+          <button (click)="addToCart(product._id)" class="btn-main btn text-white py-1 px-2">Add to Cart</button>
+          <button (click)="removeFromWishlist(product._id)" class="ms-auto btn-dark btn text-white py-1 px-2">Remove
+            from wishlist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="loading" class="loading position-fixed top-0 bottom-0 end-0 start-0 bg-dark">
+  <span class="loader"></span>
+</div>

@@ -1,0 +1,9 @@
+<form (ngSubmit)="checkPayment(shippingForm.value)" class="my-5" [formGroup]="shippingForm">
+  <label for="details">Details:</label>
+  <input class="form-control mt-1 mb-3" formControlName="details" type="text" id="details">
+  <label for="phone">Phone:</label>
+  <input class="form-control mt-1 mb-3" formControlName="phone" type="tel" id="phone">
+  <label for="city">City:</label>
+  <input class="form-control mt-1 mb-3" formControlName="city" type="text" id="city">
+  <button class="btn bg-main text-white ms-auto d-block">Payment</button>
+</form>

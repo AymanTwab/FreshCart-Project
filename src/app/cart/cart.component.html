@@ -1,0 +1,44 @@
+<div class="mt-4">
+  <h3 class="fs-1 text-center my-3">Cart</h3>
+  <div class="d-flex">
+    <p class="m-2">Total Price: {{cartData?.data?.totalCartPrice|currency:' '}} EGP</p>
+    <button [class.disabled]="cartData?.data?.totalCartPrice==0" (click)="clearCart()"
+      class="btn btn-dark ms-auto">Clear Cart</button>
+  </div>
+  <div>
+  </div>
+  <div *ngFor=" let product of products" class="wish-product">
+    <div class="row bg-light p-3 my-3">
+      <div class="col-md-2"><img class="w-100" [src]="product?.product.imageCover" alt=""></div>
+      <div class="col-md-10">
+        <div class="p-3">
+          <h2 class="fs-5 fw-bold">{{product?.product.title}}</h2>
+          <p class="font-sm text-main">{{product?.product.category.name}}</p>
+          <div class="d-flex">
+            <span>{{product.price}} EGP</span>
+            <div class="ms-auto">
+              <i class="fa-solid fa-star rating-color me-1"></i>
+              <span class="font-sm">{{product?.product.ratingsAverage}}</span>
+            </div>
+          </div>
+        </div>
+        <div class=" mt-2 d-flex px-3">
+          <div class="d-flex ">
+            <button (click)="countUpdate(product?.count-1,product.product._id)" class="btn btn-dark btn-sm">-</button>
+            <p class="my-1 mx-3">{{product?.count}}</p>
+            <button (click)="countUpdate(product?.count+1,product.product._id)" class="btn btn-dark btn-sm">+</button>
+          </div>
+          <button (click)="removeFromCart(product?.product._id)" class="ms-auto btn-dark btn text-white py-1 px-2"><i
+              class="fa-solid fa-trash-can"></i>
+            Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button [class.disabled]="cartData?.data?.totalCartPrice==0" class="btn bg-main text-white m-2"
+    [routerLink]="['/checkout',cartData?.data?._id]">Checkout</button>
+  <p *ngIf="cartData?.data?.totalCartPrice==0" class="text-center">No Products in your Cart</p>
+</div>
+<div id="loading" class="loading position-fixed top-0 bottom-0 end-0 start-0 bg-dark">
+  <span class="loader"></span>
+</div>

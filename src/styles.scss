@@ -1,0 +1,180 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+:root {
+  --main-color: #4fa74f;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #f2b035;
+}
+
+body {
+  font-family: var(--font-family) !important;
+}
+.rating-color {
+  color: var(--rating-color);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+.product:hover {
+  box-shadow: var(--shadow);
+  border: solid 1px var(--main-color);
+}
+
+.auth-btn {
+  background-color: #4fa74f !important;
+  transition: 0.3s;
+}
+.btn-main {
+  background-color: #4fa74faa;
+  transition: 0.3s;
+}
+.btn-main:hover {
+  background-color: #4fa74f !important;
+}
+.product:hover .btn {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.font-sm {
+  font-size: 14px;
+}
+.text-main {
+  color: var(--main-color);
+}
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.wish-list-heart {
+  transition: 0.3s;
+}
+.wish-list-heart:hover,
+.wish-list-heart:focus,
+.wish-list-remove {
+  color: #c51605 !important;
+}
+
+.test {
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(0);
+}
+
+.card:hover .test {
+  opacity: 1;
+}
+
+.test2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  transition: 0.3s;
+  transform: translateY(-10);
+  background-color: #fff;
+  z-index: 1;
+}
+.card:hover .test2 {
+  transform: translateY(-52px);
+}
+
+.card {
+  border: #00000015 solid 1px;
+  border-radius: 15px !important;
+  transition: 0.3s;
+}
+
+.product-img {
+  transition: 0.3s;
+}
+
+.card:hover .product-img {
+  transform: scale(1.1);
+}
+
+.card:hover {
+  border: #4fa74f66 solid 1px !important;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 101;
+}
+
+.pt-75 {
+  padding-top: 75px !important ;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.h70 {
+  min-height: 70vh;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+.addedToWishlist {
+  color: #c51605;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
